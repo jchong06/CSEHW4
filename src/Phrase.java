@@ -15,14 +15,16 @@ public class Phrase extends LinkedList<Bigram> {
         s = s.toUpperCase().replaceAll(" ", "");
 
         for (int i = 0; i < s.length(); i++) {
-            if (!((s.charAt(i) + "").toLowerCase().equals((s.charAt(i) + "").toUpperCase()))){
+            if ((!((s.charAt(i) + "").toLowerCase().equals((s.charAt(i) + "").toUpperCase()))) && (s.charAt(i) != '.')){
                 if (String.valueOf(s.charAt(i)).equals(bigram)) {
                     bigram += "X";
                     pairs.add(bigram);
                     bigram = String.valueOf(s.charAt(i));
                     i++;
                 }
-                bigram += String.valueOf(s.charAt(i));
+                if ((!((s.charAt(i) + "").toLowerCase().equals((s.charAt(i) + "").toUpperCase()))) && (s.charAt(i) != '.')) {
+                    bigram += String.valueOf(s.charAt(i));
+                }
                 if (bigram.length() == 2) {
                     pairs.add(bigram);
                     bigram = "";
