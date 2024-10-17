@@ -16,9 +16,13 @@ public class KeyTable {
             letterCountMap.put(c, 0);
         }
         for (int i = 0; i < keyPhrase.length(); i++){
-            if (letterCountMap.get(keyPhrase.charAt(i)) == 0){
-                letterCountMap.put(keyPhrase.charAt(i), 1);
-                phrase += keyPhrase.charAt(i);
+            if (!((keyPhrase.charAt(i)) == ' ')){
+                if ((!((keyPhrase.charAt(i) + "").toLowerCase().equals((keyPhrase.charAt(i) + "").toUpperCase())))){
+                    if ((letterCountMap.get(keyPhrase.charAt(i)) == 0)) {
+                        letterCountMap.put(keyPhrase.charAt(i), 1);
+                        phrase += keyPhrase.charAt(i);
+                    }
+                }
             }
         }
         for (char c = 'A'; c <= 'Z'; c++) {
@@ -31,7 +35,7 @@ public class KeyTable {
 
         for (int i = 0; i < 5; i++){
             for (int j = 0; j < 5; j++){
-                keyTable.getKeyTable()[i][j] = phrase.charAt(idx); // Fill the key
+                keyTable.getKeyTable()[i][j] = phrase.charAt(idx);
                 idx++;
             }
         }
@@ -45,7 +49,7 @@ public class KeyTable {
     public int findRow(char c) {
         for (int i = 0; i < key.length; i++) {
             for (int j = 0; j < key[i].length; j++) {
-                if (key[i][j] == c) {
+                if (key[i][j] == Character.toUpperCase(c)) {
                     return i;
                 }
             }
@@ -56,7 +60,7 @@ public class KeyTable {
     public int findCol(char c) {
         for (int i = 0; i < key.length; i++) {
             for (int j = 0; j < key[i].length; j++) {
-                if (key[i][j] == c) {
+                if (key[i][j] == Character.toUpperCase(c)) {
                     return j;
                 }
             }
