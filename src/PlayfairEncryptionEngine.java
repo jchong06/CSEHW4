@@ -1,6 +1,24 @@
 import java.util.Scanner;
-
+/**
+ * @author Justin Chong
+ * Email: justin.chong@stonybrook.edu
+ * Student ID: 116143020
+ * Recitation Number: CSE 214 R03
+ * TA: Kevin Zheng
+ */
+/**
+ * The PlayfairEncryptionEngine class is the main driver for interacting with
+ * the Playfair Cipher encryption and decryption process.
+ * It provides options to change the key, print the key, encrypt or decrypt phrases, and quit.
+ */
 public class PlayfairEncryptionEngine {
+
+    /**
+     * The main method is the entry point for the Playfair Encryption Engine.
+     * It prompts the user for input and displays a menu for interacting with the Playfair Cipher.
+     *
+     * @param args command line arguments (not used)
+     */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter key phrase: ");
@@ -41,7 +59,7 @@ public class PlayfairEncryptionEngine {
                 for (Bigram bi : encrypt){
                     result += bi;
                 }
-                System.out.println("Encrypted text is : " + result);
+                System.out.println("Encrypted text is: " + result);
             }
             if (option.equals("DE")){
                 System.out.print("Please enter a phrase to decrypt: ");
@@ -52,7 +70,7 @@ public class PlayfairEncryptionEngine {
                 for (Bigram bi : decrypt){
                     result += bi;
                 }
-                System.out.println("Encrypted text is : " + result);
+                System.out.println("Decrypted text is: " + result);
             }
             System.out.println(menu);
             System.out.print("Please select an option: ");
